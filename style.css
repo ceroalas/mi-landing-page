@@ -1,0 +1,323 @@
+/* ==========================================
+   1. LIMPIEZA GENERAL DE ESPACIOS
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* EFECTO DE DESPLAZAMIENTO SUAVE */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 140px;
+}
+
+/* ==========================================
+   2. CONFIGURACIÓN DEL FONDO DE LA PÁGINA
+   ========================================== */
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-image: linear-gradient(rgba(245, 245, 245, 0.85), rgba(255, 255, 255, 0.85)), url('fotos/varias.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #f4f4f4; 
+}
+
+/* ==========================================
+   3. BARRA DE NAVEGACIÓN SUPERIOR (FIJA)
+   ========================================== */
+header {
+    background-color: #ffffff; 
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    width: 350px;           
+    height: auto;
+    text-align: center;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15)); 
+    margin-bottom: 5px;     
+}
+
+.subtitulo-logo {
+    font-size: 0.85rem;     
+    color: #555;            
+    font-weight: 600;       
+    text-transform: uppercase; 
+    letter-spacing: 2px;    
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #444;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #0076a3;
+}
+
+/* ==========================================
+   4. CONTENEDORES DE LAS SECCIONES (Diseño Base / Móvil)
+   ========================================== */
+main {
+    margin-top: 140px;
+}
+
+.contenedor {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+}
+
+.media-box {
+    width: 100%;
+    max-height: 480px;
+    overflow: hidden;
+    background-color: #eaeaea;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-box video, 
+.media-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.texto-seccion h2 {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.texto-seccion p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   5. ADAPTACIÓN PARA CELULARES
+   ========================================== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+    }
+
+    main {
+        margin-top: 190px;
+    }
+
+    html {
+        scroll-padding-top: 200px;
+    }
+
+    /* Achicamos la separación entre los botones para ganar espacio */
+    .menu {
+        gap: 8px; 
+    }
+
+    .logo {
+        font-size: 1rem;
+        padding: 15px 40px; 
+    }
+
+    /* AQUÍ ACHICAMOS LA LETRA DEL MENÚ */
+    .menu a {
+        font-size: 0.85rem;       /* Antes estaba en 0.9rem, ahora es más chica */
+        letter-spacing: 0px;       /* Quitamos el espacio entre letras para que ocupe menos */
+    }
+
+    textarea#mensaje {
+    width: 100% !important;    
+    box-sizing: border-box !important;
+  }
+
+    .site-footer {
+    display: none !important;
+  }
+}
+
+/* ==========================================
+   6. CAMBIO A 3 COLUMNAS (Pantallas de 14" o más)
+   ========================================== */
+@media (min-width: 1100px) {
+    
+    main {
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 20px;
+    }
+
+    /* Contenedor que agrupa las primeras 3 secciones */
+    .grupo-productos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Crea las 3 columnas exactas */
+        gap: 25px;
+        margin-bottom: 20px;
+    }
+
+    /* Adaptamos las secciones individuales para que actúen como Tarjetas/Cards */
+    .grupo-productos .contenedor {
+        max-width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column; 
+        height: 100%; 
+    }
+
+    /* Forzamos a que las cajas de fotos/videos de las columnas tengan el mismo tamaño */
+    .grupo-productos .media-box {
+        height: 1300px;
+    }
+
+    /* Estilos para la sección de Contacto (Abajo y centrada) */
+    .contacto-centrado {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* O el color de fondo de tu landing */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.texto-seccion {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los textos a la izquierda */
+    margin-bottom: 15px;    /* Espacio antes del botón */
+  }
+
+  /* 2. Le damos un espacio sutil entre el título y el campo */
+  .campo label {
+    margin-bottom: 8px;
+    font-weight: bold; /* Opcional: para que resalte la pregunta */
+  }
+
+  /* 3. Aseguramos que el campo ocupe todo el ancho disponible */
+  .campo textarea {
+    width: 100%;            /* Ocupa todo el ancho de la pantalla */
+    min-height: 120px;      /* <--- ¡ESTO LO ENSANCHA HACIA ABAJO! Ajusta el número a tu gusto */
+    padding: 12px;          /* Le da espacio interno para que el texto no quede pegado a los bordes */
+    box-sizing: border-box; /* Evita que se deforme o se salga de la pantalla */
+  }
+
+  /* 4. Estilo para el botón abajo */
+  .btn-enviar {
+    width: 100%; /* Hace que el botón sea grande y fácil de presionar en el celular */
+    display: block;
+  }
+
+.btn-enviar:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
+/* Un estilo oscuro, limpio y minimalista */
+.site-footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 40px 20px 20px 20px;
+  font-family: sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-brand, .footer-links, .footer-legal {
+  flex: 1;
+  min-width: 200px;
+}
+
+.site-footer h4 {
+  color: #ff6b6b; /* Usa aquí el color de tu marca */
+  margin-bottom: 15px;
+}
+
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.site-footer ul li {
+  margin-bottom: 10px;
+}
+
+.site-footer a {
+  color: #b3b3b3;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+}
