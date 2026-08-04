@@ -143,6 +143,27 @@ main {
     line-height: 1.6;
 }
 
+.banner-promocional {
+    background-color: #e53935; /* Rojo llamativo y profesional */
+    color: #ffffff; /* Texto blanco puro */
+    text-align: center; /* Centra el texto */
+    padding: 20px 15px; /* Margen interno para dar aire al texto */
+    margin: 30px auto; /* Margen superior/inferior y centrado horizontal */
+    max-width: 800px; /* Ancho máximo para que no se estire demasiado en pantallas grandes */
+    width: 90%; /* Ancho adaptativo para pantallas móviles */
+    border-radius: 6px; /* Bordes suavemente redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave para dar profundidad */
+}
+
+.banner-promocional p {
+    font-size: 1.2rem; /* Tamaño de letra legible */
+    font-weight: bold; /* Texto en negrita para resaltar */
+    margin: 0; /* Elimina márgenes por defecto del párrafo */
+    line-height: 1.4; /* Espaciado entre líneas óptimo */
+    text-transform: uppercase; /* Opcional: convierte el texto a mayúsculas */
+    letter-spacing: 0.5px; /* Separa ligeramente las letras para mejorar lectura */
+}
+
 /* ==========================================
    5. ADAPTACIÓN PARA CELULARES
    ========================================== */
